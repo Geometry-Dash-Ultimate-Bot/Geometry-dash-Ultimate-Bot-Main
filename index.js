@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const { prefix, token, log, status } = require('./config.json');
+const { prefix, token, status } = require('./config.json');
 const bot = require('./src/bot.json');
 const emote = require('./src/emotes');
 
@@ -19,7 +19,7 @@ client.once('ready', () => {
     client.user.setActivity(`${status}`, {
   type: "PLAYING"
 });
-    client.channels.cache.get(log).send(`${emote.info} Event Fired: Bot Login as: \`${client.user.tag}\``);
+    client.channels.cache.get(bot.log).send(`${emote.info} Event Fired: Bot Login as: \`${client.user.tag}\``);
     console.log(`${client.user.tag} is ready!`);
 });
 

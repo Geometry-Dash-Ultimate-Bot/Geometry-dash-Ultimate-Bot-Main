@@ -36,9 +36,8 @@ client.on('message', message => {
 		client.commands.get(command).execute(message, args);
 	} catch (error) {
 		console.error(error);
-		message.channel.send(`${emote.x} ${string.error}`);
-                message.channel.send(`${emote.check} i have sent a log to the developer!`);
-                client.channels.cache.get(bot.log).send(`${emote.x} ${string.error} while executing a command!`);
+		message.channel.send(`${emote.x} ${string.error} \n ${emote.check} i have sent a log to the developer!`);
+                client.channels.cache.get(bot.log).send(`${emote.x} **${string.error} while executing a command!** \n author: \`${message.author.tag}\` \n command: \`${message.content}\` \n error: \`${error}\` `);
 	};
 });
 
